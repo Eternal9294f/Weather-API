@@ -6,7 +6,7 @@ A small experiment in turning weather data into something actually useful.
 
 ---
 
-## Why I built this
+## Why I built this?
 
 I want to build a life where I can work from different places, spend a few months in one city, then move somewhere completely different.
 
@@ -26,7 +26,7 @@ It was figuring out **what the data should mean to the person using the app.**
 
 ---
 
-## What I built
+## What I built?
 
 The application takes weather information from an API and turns it into a simple experience for checking current conditions.
 
@@ -62,7 +62,7 @@ That difference is what made this project interesting to me.
 
 ---
 
-## Building it
+## Building Process
 
 The workflow is fairly simple:
 
@@ -76,7 +76,7 @@ And the product thinking sits somewhere in between.
 
 ---
 
-## What I learned
+## What I learned?
 
 This project made one thing very clear to me:
 
@@ -98,7 +98,7 @@ Those questions are much more interesting to me than simply making another API c
 
 ---
 
-## What I'd improve
+## What I'd improve?
 
 This is still a small project, so there are plenty of things I'd change with more time.
 
@@ -115,7 +115,7 @@ Eventually, I'd like to push it closer to the question I actually care about:
 
 ---
 
-## Why this project matters to me
+## Why this project matters to me?
 
 This isn't meant to be a revolutionary weather app.
 
@@ -127,7 +127,7 @@ And honestly, that's the part of Product Management I'm most interested in.
 
 ---
 
-## Tech
+## Tech stack
 
 `Weather API` · `JavaScript` · `API Integration` · `JSON`
 
