@@ -1,4 +1,4 @@
-WeatherMood
+#WeatherMood
 
 A simple weather application exploring a small question:
 
@@ -8,7 +8,7 @@ Live: YOUR_VERCEL_URL
 
 ---
 
-Why I built this
+#Why I built this
 
 I've always liked the idea of working remotely and moving between different cities.
 
@@ -30,7 +30,7 @@ Something a little more human.
 
 ---
 
-What I built
+#What I built
 
 WeatherMood lets users search for a city and see its current weather conditions.
 
@@ -56,7 +56,7 @@ Instead of making someone interpret three different measurements, give them a qu
 
 ---
 
-The idea behind it
+#The idea behind it
 
 Weather data is useful, but raw numbers don't always communicate the full experience.
 
@@ -80,7 +80,7 @@ The goal was to make the data understandable without hiding where it came from.
 
 ---
 
-What I learned
+#What I learned?
 
 This project made me think about the difference between displaying information and making information useful.
 
@@ -103,7 +103,7 @@ A useful product doesn't always need more data. Sometimes it needs a better way 
 
 ---
 
-What I'd improve
+#What I would improve?
 
 If I continued building WeatherMood, I'd explore:
 
@@ -124,7 +124,7 @@ to:
 
 ---
 
-Why this project matters to me
+#Why this project matters to me?
 
 I didn't build WeatherMood to compete with established weather applications.
 
