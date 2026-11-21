@@ -281,22 +281,33 @@ async function fetchWeatherData(city) {
 
   try {
     let url;
-    const customKey = state.customApiKey.trim();
+    const activeKey = state.customApiKey.trim() || '1362b3e4f3934d8098d133406261909';
     const isLocalFile = window.location.protocol === 'file:';
     
-    if (isLocalFile && customKey) {
-      // Direct call if testing pure static HTML file locally without server
-      url = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(customKey)}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=yes`;
+    if (isLocalFile) {
+      // Direct call when user double-clicks index.html in file explorer
+      url = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(activeKey)}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=yes`;
     } else {
       // Standard production Vercel & serverless route
       const queryParams = new URLSearchParams({ q: city });
-      if (customKey) {
-        queryParams.set('key', customKey);
+      if (state.customApiKey.trim()) {
+        queryParams.set('key', state.customApiKey.trim());
       }
       url = `/api/weather?${queryParams.toString()}`;
     }
 
-    const response = await fetch(url);
+    let response;
+    try {
+      response = await fetch(url);
+    } catch (networkErr) {
+      // Fallback if local server is not running
+      if (!isLocalFile) {
+        const fallbackUrl = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(activeKey)}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=yes`;
+        response = await fetch(fallbackUrl);
+      } else {
+        throw networkErr;
+      }
+    }
     const data = await response.json();
 
     if (!response.ok) {
