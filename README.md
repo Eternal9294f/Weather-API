@@ -142,8 +142,8 @@ Taking something familiar, identifying what could be more useful, and building a
 
 ---
 
-Tech
+### Tech Stack
 
-"HTML5" · "CSS3" · "JavaScript" · "WeatherAPI" · "JSON" · "Vercel"
+`HTML5` &bull; `CSS3` &bull; `JavaScript` &bull; `WeatherAPI` &bull; `JSON` &bull; `Vercel`
 
-Built as a small experiment in API integration, data interpretation, and user experience.
+*Built as a small experiment in API integration, data interpretation, and user experience.*
