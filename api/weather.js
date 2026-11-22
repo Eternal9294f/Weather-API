@@ -51,7 +51,7 @@ module.exports = async function handler(req, res) {
       }
     }
 
-    const apiKey = clientKey || process.env.WEATHER_API_KEY;
+    const apiKey = clientKey || process.env.WEATHER_API_KEY || '1362b3e4f3934d8098d133406261909';
 
     if (!city || !city.trim()) {
       return res.status(400).json({

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Minimalist luxury weather intelligence application with mythic anime archetypes and PM telemetry",
   "scripts": {
+    "build": "echo 'Build complete'",
     "start": "node server.js",
     "dev": "node server.js",
     "test": "node tests/test_weathermood.js"
