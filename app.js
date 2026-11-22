@@ -282,19 +282,19 @@ async function fetchWeatherData(city) {
   try {
     let url;
     const activeKey = state.customApiKey.trim() || '1362b3e4f3934d8098d133406261909';
-    const isLocalFile = window.location.protocol === 'file:';
-    const isGitHubPages = window.location.hostname.endsWith('github.io');
+    const isLocalServer = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const isVercel = window.location.hostname.endsWith('vercel.app');
     
-    if (isLocalFile || isGitHubPages) {
-      // Direct call on GitHub Pages or local double-click
-      url = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(activeKey)}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=yes`;
-    } else {
-      // Standard production Vercel & serverless route
+    // Only route to /api/weather on Vercel or local Node server; everywhere else (GitHub Pages, file://, etc.) use direct API
+    let url;
+    if (isVercel || isLocalServer) {
       const queryParams = new URLSearchParams({ q: city });
       if (state.customApiKey.trim()) {
         queryParams.set('key', state.customApiKey.trim());
       }
       url = `/api/weather?${queryParams.toString()}`;
+    } else {
+      url = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(activeKey)}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=yes`;
     }
 
     let response;
@@ -307,16 +307,25 @@ async function fetchWeatherData(city) {
         response = await fetch(fallbackUrl);
       }
     } catch (networkErr) {
-      // Fallback if local server is not running
       const fallbackUrl = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(activeKey)}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=yes`;
       response = await fetch(fallbackUrl);
     }
-    const data = await response.json();
 
-    if (!response.ok) {
+    const text = await response.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (parseErr) {
+      // If response was HTML (404/gateway page), fetch directly from WeatherAPI
+      const fallbackUrl = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(activeKey)}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=yes`;
+      const fallbackRes = await fetch(fallbackUrl);
+      data = await fallbackRes.json();
+    }
+
+    if (!data || data.error) {
       const errMsg = (data && data.error && data.error.message) 
         ? data.error.message 
-        : `Network response returned HTTP status ${response.status}`;
+        : `Weather service returned an error`;
       throw new Error(errMsg);
     }
 
