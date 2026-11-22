@@ -137,6 +137,14 @@ body {
   gap: 1.5rem;
 }
 
+.brand-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
 .brand-badge {
   display: inline-flex;
   align-items: center;
@@ -145,7 +153,40 @@ body {
   background: rgba(0, 229, 153, 0.08);
   border: 1px solid rgba(0, 229, 153, 0.25);
   border-radius: 999px;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0;
+}
+
+.creator-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.22rem 0.65rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.1em;
+  transition: var(--transition-fast);
+}
+
+.creator-badge:hover {
+  border-color: var(--accent-cred);
+  background: rgba(0, 229, 153, 0.06);
+}
+
+.creator-initials {
+  font-weight: 800;
+  color: var(--accent-cred);
+  background: rgba(0, 229, 153, 0.14);
+  padding: 0.08rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.62rem;
+}
+
+.creator-name {
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 
 .brand-radar-dot {
@@ -183,6 +224,22 @@ body {
   color: var(--accent-cred);
   font-weight: 300;
   margin-left: 2px;
+}
+
+.brand-title .brand-by-an {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-cred);
+  letter-spacing: 0.1em;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  padding: 0.18rem 0.55rem;
+  border: 1px solid rgba(0, 229, 153, 0.35);
+  border-radius: 999px;
+  background: rgba(0, 229, 153, 0.08);
+  box-shadow: 0 0 10px rgba(0, 229, 153, 0.15);
+  display: inline-block;
 }
 
 .brand-subtitle {
@@ -1104,6 +1161,64 @@ body {
   font-size: 0.68rem;
   color: var(--accent-cred);
   letter-spacing: 0.12em;
+}
+
+.footer-author-pill {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-cred);
+  background: rgba(0, 229, 153, 0.08);
+  border: 1px solid rgba(0, 229, 153, 0.25);
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  letter-spacing: 0.1em;
+}
+
+.pm-author-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: #13131c;
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.pm-author-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(0, 229, 153, 0.2), rgba(168, 85, 247, 0.2));
+  border: 1px solid var(--accent-cred);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--accent-cred);
+  flex-shrink: 0;
+}
+
+.pm-author-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.pm-author-name {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.pm-author-role {
+  font-size: 0.75rem;
+  color: var(--text-muted);
 }
 
 /* ==========================================================================
