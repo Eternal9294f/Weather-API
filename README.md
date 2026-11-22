@@ -1,139 +1,99 @@
-# WeatherMood ⚡
+# WeatherMood ⚡ &bull; By AN
 
 > **"Weather isn't just a number. It's how the world feels."**  
-> *Translating sterile meteorological telemetry into intuitive human perception.*
+> *Translating multi-variable meteorological telemetry into intuitive human perception.*
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-00E599?style=for-the-badge&logo=github&logoColor=black)](https://eternal9294f.github.io/WeatherMood/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![WeatherAPI](https://img.shields.io/badge/API-WeatherAPI-00B4D8?style=for-the-badge&logo=icloud&logoColor=white)](https://www.weatherapi.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-white?style=for-the-badge)](LICENSE)
+
+🌐 **Live Application**: [https://eternal9294f.github.io/WeatherMood/](https://eternal9294f.github.io/WeatherMood/)  
+👤 **Product Lead & Architecture**: **Aditya Naagar** (`By AN`)
 
 ---
 
-### Tech Stack & Tooling
+## 1. Executive Summary
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript ES6+](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![WeatherAPI](https://img.shields.io/badge/WeatherAPI-00B4D8?style=for-the-badge&logo=icloud&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![License: MIT](https://img.shields.io/badge/License-MIT-00E599?style=for-the-badge)
+Standard weather applications bombard users with raw numerical metrics—hectopascals, dew points, knot vectors—that demand unnecessary cognitive translation. 
 
----
+* A temperature reading of **28°C** with a 15 km/h breeze feels radiant and energizing.
+* That exact same **28°C** with 85% relative humidity feels suffocating and oppressive.
 
-## The Core Question
-
-What if a weather application told you **how the day actually feels**, instead of making you do mental math over raw numbers?
-
-* **Live Deployment**: `YOUR_VERCEL_URL`
-* **Architecture**: Serverless Edge Proxy &bull; Zero Client Secret Leaks &bull; CRED-inspired Dark Aesthetics
+**WeatherMood** solves this gap. It synthesizes temperature, humidity, wind velocity, and condition codes into instant atmospheric moods and archetypes (*Attack on Titan* & *Berserk* subtle aesthetic), designed with the high-craft minimalism of fintech dark-mode interfaces (CRED-inspired).
 
 ---
 
-## Why I Built This
+## 2. Core Capabilities
 
-I have always been drawn to the freedom of working remotely and exploring different cities.
-
-However, whenever you are deciding where to spend your day, packing your bag, or planning an outdoor route, knowing the raw temperature alone tells you remarkably little.
-
-* A day can read **28°C** and feel radiant and energizing if the air is crisp with a gentle breeze.
-* That exact same **28°C** can feel suffocating and exhausting if the relative humidity is 80%.
-
-That got me thinking from a Product Management perspective:
-
-> **Can complex environmental data be synthesized into something humans understand at a glance?**
-
-So I created **WeatherMood**.
-
-The goal was not to build another generic weather dashboard packed with sterile gauges and decimal points. The goal was to build something grounded in human experience—a quiet, minimalist product that translates data into mood.
+| Feature | Description | Value Proposition |
+| :--- | :--- | :--- |
+| **Global City Telemetry** | Full-text query engine supporting any global city, airport code, or coordinates. | Universal exploration with instant sub-second response times. |
+| **10 Curated Metropolises** | Clickable shortcut chips (*Tokyo, London, NYC, Paris, Dubai, Mumbai, Singapore, Sydney, SF, Berlin*). | Zero-typing exploration of distinct climate spectrums. |
+| **Sensory Mood Engine** | Real-time algorithmic synthesis across temperature, humidity, and wind. | Immediate understanding of felt conditions over raw numbers. |
+| **Dual JSON Inspector** | Developer-focused viewport with Syntax-Highlighted JSON and Raw Payload with 1-click copy. | Total product transparency and auditability for technical stakeholders. |
+| **Dynamic Unit Engine** | Instant zero-latency switching between Celsius (°C) and Fahrenheit (°F). | Client-side recalculation without redundant network requests. |
+| **In-App PM Spec Drawer** | Integrated product specification drawer covering threshold logic and architecture. | Built-in discussion artifact for product management evaluations. |
 
 ---
 
-## What I Built
+## 3. Atmospheric Mood Matrix
 
-**WeatherMood** is an atmospheric sensory web application designed with a sleek, CRED-inspired dark aesthetic and subtle cultural undertones (*Attack on Titan* & *Berserk* atmosphere):
+Rather than forcing users to cross-reference multiple gauges, WeatherMood maps telemetry vectors directly to human perception:
 
-1. **Global City Telemetry**: Users can search for any city, coordinate, or region worldwide with instant real-time feedback.
-2. **Top 10 Curated Metropolises**: Clickable shortcut chips (Tokyo, London, New York, Paris, Dubai, Mumbai, Singapore, Sydney, San Francisco, Berlin) for rapid exploration.
-3. **The Multi-Variable Mood Engine**: Combines **Temperature**, **Humidity**, and **Wind Velocity** to generate an intuitive condition verdict:
-   * **Pleasant // Band of the Hawk** — Optimal golden equilibrium, comfortable moisture, and gentle breezes.
-   * **Cold // Beyond the Wall** — Sharp, sub-zero winter chills demanding heavy cloaks and warmth.
-   * **Windy // Wings of Freedom** — Fast-moving pressure currents and unchained momentum.
-   * **Stormy // The Rumbling** — Electrified skies, distant thunder, and high-voltage atmospheric drama.
-   * **Uncomfortable // The Eclipse** — Heavy tropical moisture trapping oppressive summer heat.
-4. **Developer Telemetry Inspector**: Dual tabs for **Formatted JSON** (syntax-highlighted in terminal styling) and **Raw JSON** payload with a one-click copy button.
-5. **Interactive Unit Toggle**: Instantaneous switching between Celsius (°C) and Fahrenheit (°F) with zero re-fetching latency.
-6. **In-App PM Case Study Drawer**: An interactive modal embedded directly into the header detailing product requirements, threshold matrices, and security decisions for interview discussions.
-
----
-
-## The Philosophy Behind the Product
-
-Data is only as valuable as the decisions it empowers.
-
-Raw numbers inform, but **context guides action**:
-* **28°C** is merely an isolated data point.
-* **28°C + 82% Humidity + 6 km/h Wind** is an uncomfortable thermal blanket.
-
-Rather than forcing the user to mentally cross-reference three separate charts, WeatherMood’s classification engine evaluates these variables simultaneously to deliver immediate clarity.
-
-At the same time, I believe in **product transparency**. By providing the developer JSON inspector, users can inspect the exact telemetry payload returned by WeatherAPI. We make the data intuitive without hiding the engineering reality behind the curtain.
+| Mood Archetype | Felt Condition | Telemetry Threshold Triggers |
+| :--- | :--- | :--- |
+| **Band of the Hawk** | Golden Equilibrium | `20°C ≤ Temp ≤ 26°C` AND `Humidity ≤ 60%` AND `Wind ≤ 20 km/h` |
+| **The Eclipse** | Sultry Oppression | `Temp ≥ 28°C` AND `Humidity ≥ 70%` |
+| **Beyond the Wall** | Arctic Chill | `Temp ≤ 2°C` OR Condition Code: *Snow / Blizzard / Ice* |
+| **The Rumbling** | Titan Tempest | Condition Code: *Thunder / Heavy Convective Storms* |
+| **Wings of Freedom** | Gale Velocity | `Wind Velocity ≥ 35 km/h` |
+| **Rain Over Eldia** | Steady Downpour | Condition Code: *Drizzle / Moderate-to-Heavy Rain* |
+| **Scorched Desert** | Arid Radiance | `Temp ≥ 32°C` AND `Humidity < 35%` |
+| **Wall Rose** | Temperate Solitude | Default balanced baseline when no extreme vector dominates |
 
 ---
 
-## What I Learned (Product & Technical Takeaways)
+## 4. Product & Technical Takeaways
 
-Building WeatherMood reinforced foundational lessons in digital product craft:
+Building WeatherMood provided foundational lessons in product craft and systems architecture:
 
-* **Information vs. Utility**: An API can return 60+ parameters (dew point, hectopascals, UV indices, wind gusts). A product manager's job is not to display everything, but to discern what actually drives user value.
-* **Cognitive Load Reduction**: Good design minimizes mental translation steps. Moving from raw numbers to sensory states reduces cognitive friction.
-* **Edge Security by Design**: Rather than exposing API credentials in frontend bundles, I architected a serverless Edge proxy route (`/api/weather`) that reads environment variables securely and applies 60-second caching headers.
-* **Sensory Branding**: Giving an application an evocative identity—combining the clean minimalism of fintech design with memorable cultural touches—makes a utility product memorable.
-
----
-
-## Future Roadmap & What I Would Improve
-
-If I continue expanding WeatherMood, the next iterations would focus on:
-
-* [ ] **Multi-Day Mood Trajectories**: Showing whether tomorrow's mood will improve or worsen.
-* [ ] **Activity Recommendations**: Moving from *"What's the weather like?"* to *"What can I do today?"* (e.g., optimal running hours, café work windows).
-* [ ] **City Comparison Split-View**: Side-by-side mood comparisons between two cities for digital nomads.
-* [ ] **Automated Geolocation**: Optional one-tap local radar detection.
+* **Cognitive Load Reduction**: Moving from isolated numbers to emotional/sensory states eliminates cognitive friction for everyday decision-making.
+* **Information vs. Utility**: WeatherAPI provides 60+ parameters. A Product Manager's job is not to display every variable, but to curate the specific signals that drive human value.
+* **Zero Client Secret Leaks**: Telemetry requests route through serverless proxies (`/api/weather`) or client key fallbacks, ensuring private API credentials remain protected.
+* **Resilient Graceful Degradation**: Architecture automatically adapts between static edge environments (GitHub Pages) and serverless cloud nodes (Vercel/Node.js) without code reconfiguration.
 
 ---
 
-## Why This Project Matters to Me
+## 5. Local Setup & Testing
 
-I didn't build WeatherMood to compete with multi-million-dollar weather corporations.
+### Prerequisites
+* [Node.js](https://nodejs.org/) (v16 or higher)
 
-I built it because I find fascinating product opportunities in everyday routines. Weather is something humanity checks daily, yet the interface has remained largely unchanged for a decade.
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/Eternal9294f/WeatherMood.git
+cd WeatherMood
 
-A thoughtful change in how information is synthesized can fundamentally improve how someone starts their day. That is the kind of product thinking I bring to every challenge: **taking the familiar, questioning the default, and designing a more human experience.**
+# Configure environment variables
+cp .env.example .env
+# Open .env and add your WEATHER_API_KEY
 
----
+# Start the local development server
+node server.js
+```
 
-### Local Development Quickstart
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Eternal9294f/Weather-API.git
-   cd Weather-API
-   ```
-
-2. **Set up environment variables**:
-   ```bash
-   cp .env.example .env
-   # Add your WEATHER_API_KEY inside .env
-   ```
-
-3. **Run the local server**:
-   ```bash
-   node server.js
-   ```
-   Open `http://localhost:3000` in your browser.
-
-4. **Run automated tests**:
-   ```bash
-   npm test
-   ```
+### Running Automated Test Suite
+WeatherMood includes an automated verification test suite validating all 7 mood archetypes and security rules:
+```bash
+npm test
+```
 
 ---
 
-*Crafted with attention to product detail, telemetry integrity, and clean UX.*
+## 6. Author & Attribution
+
+* **Architect & Product Lead**: [Aditya Naagar](https://github.com/Eternal9294f) (`By AN`)
+* **Project Repository**: [https://github.com/Eternal9294f/WeatherMood](https://github.com/Eternal9294f/WeatherMood)
+* **License**: MIT
