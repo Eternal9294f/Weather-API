@@ -2,7 +2,6 @@
   "name": "weathermood",
   "version": "1.0.0",
   "description": "Minimalist luxury weather intelligence application with mythic anime archetypes and PM telemetry",
-  "main": "api/weather.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",

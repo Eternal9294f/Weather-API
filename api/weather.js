@@ -28,10 +28,29 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-    const city = url.searchParams.get('q') || url.searchParams.get('city');
-    const days = url.searchParams.get('days') || '3';
-    const clientKey = url.searchParams.get('key');
+    let city = '';
+    let days = '3';
+    let clientKey = '';
+
+    // 1. Check Vercel native parsed req.query
+    if (req.query && typeof req.query === 'object') {
+      city = req.query.q || req.query.city || '';
+      days = req.query.days || '3';
+      clientKey = req.query.key || '';
+    }
+
+    // 2. Fallback to URL searchParams parsing if req.query is undefined
+    if (!city) {
+      try {
+        const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+        city = url.searchParams.get('q') || url.searchParams.get('city') || '';
+        days = url.searchParams.get('days') || days;
+        clientKey = url.searchParams.get('key') || clientKey;
+      } catch (e) {
+        // Fallback for relative paths
+      }
+    }
+
     const apiKey = clientKey || process.env.WEATHER_API_KEY;
 
     if (!city || !city.trim()) {
@@ -52,7 +71,7 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    // Call WeatherAPI.com forecast endpoint with 3 days + alerts
+    // Call upstream WeatherAPI.com
     const weatherApiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(apiKey.trim())}&q=${encodeURIComponent(city.trim())}&days=${encodeURIComponent(days)}&aqi=no&alerts=yes`;
     
     const response = await fetch(weatherApiUrl, {
