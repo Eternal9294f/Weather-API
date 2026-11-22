@@ -1,7 +1,7 @@
 # WeatherMood ⚡ &bull; By AN
 
-> **"Weather isn't just a number. It's how the world feels."**  
-> *Translating multi-variable meteorological telemetry into intuitive human perception.*
+> **"Built for digital nomads, travelers, and remote explorers landing in new cities."**  
+> *Skip the mental math. Know instantly how any destination feels before stepping out to work, explore, or pack.*
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-00E599?style=for-the-badge&logo=github&logoColor=black)](https://eternal9294f.github.io/WeatherMood/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
@@ -15,12 +15,14 @@
 
 ## 1. Executive Summary
 
-Standard weather applications bombard users with raw numerical metrics—hectopascals, dew points, knot vectors—that demand unnecessary cognitive translation. 
+When traveling or working remotely across different cities, checking the weather should answer one practical question: **what will the day actually feel like outside?**
 
-* A temperature reading of **28°C** with a 15 km/h breeze feels radiant and energizing.
-* That exact same **28°C** with 85% relative humidity feels suffocating and oppressive.
+Standard weather applications bombard users with raw numerical metrics—hectopascals, dew points, knot vectors—that demand unnecessary mental translation:
 
-**WeatherMood** solves this gap. It synthesizes temperature, humidity, wind velocity, and condition codes into instant atmospheric moods and archetypes (*Attack on Titan* & *Berserk* subtle aesthetic), designed with the high-craft minimalism of fintech dark-mode interfaces (CRED-inspired).
+* A temperature reading of **28°C** with a 15 km/h breeze feels radiant and ideal for an outdoor café workspace.
+* That exact same **28°C** with 85% relative humidity feels suffocating and exhausting.
+
+**WeatherMood** bridges this gap. It synthesizes temperature, humidity, wind velocity, and condition codes into instant atmospheric felt moods—wrapped in a sleek, CRED-inspired dark interface with subtle cultural atmosphere (*Attack on Titan* & *Berserk* line-art motifs).
 
 ---
 
