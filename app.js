@@ -280,7 +280,6 @@ async function fetchWeatherData(city) {
   hideError();
 
   try {
-    let url;
     const activeKey = state.customApiKey.trim() || '1362b3e4f3934d8098d133406261909';
     const isLocalServer = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
     const isVercel = window.location.hostname.endsWith('vercel.app');
