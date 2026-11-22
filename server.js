@@ -98,10 +98,24 @@ const server = http.createServer(async (req, res) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`\n======================================================`);
-  console.log(`  WEATHERMOOD is live on http://localhost:${PORT}`);
-  console.log(`  Test Endpoint: http://localhost:${PORT}/api/weather?q=Tokyo`);
-  console.log(`  Press Ctrl+C to terminate the local server.`);
-  console.log(`======================================================\n`);
+function startServer(portToTry) {
+  server.listen(portToTry, () => {
+    console.log(`\n======================================================`);
+    console.log(`  WEATHERMOOD is live on http://localhost:${portToTry}`);
+    console.log(`  Test Endpoint: http://localhost:${portToTry}/api/weather?q=Tokyo`);
+    console.log(`  Press Ctrl+C to terminate the local server.`);
+    console.log(`======================================================\n`);
+  });
+}
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    const nextPort = err.port + 1;
+    console.log(`Notice: Port ${err.port} is already in use. Trying port ${nextPort}...`);
+    startServer(nextPort);
+  } else {
+    console.error('Server error:', err.message);
+  }
 });
+
+startServer(PORT);
