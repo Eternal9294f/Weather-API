@@ -283,9 +283,10 @@ async function fetchWeatherData(city) {
     let url;
     const activeKey = state.customApiKey.trim() || '1362b3e4f3934d8098d133406261909';
     const isLocalFile = window.location.protocol === 'file:';
+    const isGitHubPages = window.location.hostname.endsWith('github.io');
     
-    if (isLocalFile) {
-      // Direct call when user double-clicks index.html in file explorer
+    if (isLocalFile || isGitHubPages) {
+      // Direct call on GitHub Pages or local double-click
       url = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(activeKey)}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=yes`;
     } else {
       // Standard production Vercel & serverless route
@@ -299,14 +300,16 @@ async function fetchWeatherData(city) {
     let response;
     try {
       response = await fetch(url);
-    } catch (networkErr) {
-      // Fallback if local server is not running
-      if (!isLocalFile) {
+      const contentType = response.headers.get('content-type') || '';
+      // If serverless route returned 404 or non-JSON HTML (e.g. static host), fallback directly
+      if (!response.ok || !contentType.includes('application/json')) {
         const fallbackUrl = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(activeKey)}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=yes`;
         response = await fetch(fallbackUrl);
-      } else {
-        throw networkErr;
       }
+    } catch (networkErr) {
+      // Fallback if local server is not running
+      const fallbackUrl = `https://api.weatherapi.com/v1/forecast.json?key=${encodeURIComponent(activeKey)}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=yes`;
+      response = await fetch(fallbackUrl);
     }
     const data = await response.json();
 
